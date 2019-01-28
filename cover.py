@@ -18,7 +18,7 @@ INPUT_PATH = os.path.join(PWD, TEST_DIRECTORY, INPUT_FILENAME)
 def main():
     input_json = read_json(INPUT_PATH)
     visits = process_input(input_json)
-    print json.dumps(visits, indent=4)
+    print(json.dumps(visits, indent=4))
 
 def read_json(path):
     with open(path) as input_file:

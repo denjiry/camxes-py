@@ -16,7 +16,7 @@ VLATAI_RULE = "vlatai"
 def run(text):
     parser = build_parser()
     gensuha = analyze_morphology(parser, text)
-    print jbovlaste_types.classify(gensuha)
+    print(jbovlaste_types.classify(gensuha))
 
 def build_parser():
     return Parser(VLATAI_RULE)

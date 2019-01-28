@@ -84,10 +84,10 @@ def default_object_serializer(transformer):
         return lambda x: x.__dict__
 
 def print_error(text, was, now):
-    print "----------------"
-    print text
-    print "WAS: %s" % was
-    print "IS:  %s" % now
+    print("----------------")
+    print(text)
+    print("WAS: %s" % was)
+    print("IS:  %s" % now)
 
 def dump_results(specs, output_path):
     with open(output_path, 'w') as output_file:

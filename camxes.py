@@ -91,9 +91,9 @@ def run(text, options):
     parsed = parser.parse(text)
     transformer = build_transformer(options.transformer, parser)
     transformed = transformer.transform(parsed)
-    print serialize(transformed,
+    print(serialize(transformed,
                     options.serializer,
-                    default_object_serializer(transformer))
+                    default_object_serializer(transformer)))
 
 def build_parser(options):
     parser_option = options.parser if len(PARSERS) > 1 else "camxes-ilmen"
