@@ -99,7 +99,8 @@ class Parser(object):
         zoi_open_word = zoi_open_lookahead.members[0]
         zoi_open_predicate = ZoiCaptureDelimiterPredicate(zoi_open_word,
                                                           quotation_state)
-        zoi_open.members[0] = zoi_open_predicate
+        zoi_open.members = (zoi_open_predicate,
+                            zoi_open.members[1])
 
     def _enhance_zoi_word(self, quotation_state):
         # wrap zoi_word non_space_plus with quoted word predicate
@@ -107,7 +108,8 @@ class Parser(object):
         zoi_word_non_space_plus = zoi_word.members[0]
         zoi_word_predicate = ZoiQuotedWordPredicate(zoi_word_non_space_plus,
                                                     quotation_state)
-        zoi_word.members[0] = zoi_word_predicate
+        zoi_word.members = (zoi_word_predicate,
+                            zoi_word.members[1])
 
     def _enhance_zoi_close(self, quotation_state):
         # replace zoi_close lookahead with delimiter predicate
@@ -116,7 +118,8 @@ class Parser(object):
         zoi_close_word = zoi_close_lookahead.members[0]
         zoi_close_predicate = ZoiDelimiterPredicate(zoi_close_word,
                                                     quotation_state)
-        zoi_close.members[0] = zoi_close_predicate
+        zoi_close.members = (zoi_close_predicate,
+                             zoi_close.members[1])
 
     def parse(self, text):
         return self.grammar.parse(text)
