@@ -64,7 +64,7 @@ def renamed(new_name):
 def node_init(self, expr, full_text, start, end,
               children=None, original=None):
     original(self, expr, full_text, start, end, children)
-    self.expression = None
+    self.expr = None
 
 @add_to_class(Node)
 @renamed('description')
@@ -85,7 +85,7 @@ def literal_uncached_match(self, text, pos, cache, error, original=None):
 
 def expression_node(node, expression):
     if node is not None:
-        node.expression = expression
+        node.expr = expression
     return node
 
 # Regex extensions
