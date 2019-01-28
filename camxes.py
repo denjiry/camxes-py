@@ -152,7 +152,7 @@ def serialize(transformed, fmt, default_serializer):
 def _main():
     (params, argv) = _parse_args()
     text = " ".join(argv)
-    configure_platform()
+    # configure_platform()
     run(text, params)
 
 def _parse_args():
